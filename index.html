@@ -7,13 +7,94 @@
            <link href="https://fonts.googleapis.com/css?family=oswald|raleway" rel="stylesheet">
            <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
            <link rel="stylesheet" href="style.css">
+         <!--========================================================-->
          <style>
+             
+             
+             color: Yellow;
+             
+             logo{
+                 overflow: visible;
+                 max-height: 100px;
+                 max-width: 100px;
+             }
+            
+             
+             header{
+                 background: linear-gradient(to top right, #ff0000 3%, #cc6699 91%);
+                 position: fixed;
+                 z-index: 10;
+                 top:0;
+                 left:0;
+                 height: 140px;
+                 width: 100%;
+                 color: black;
+                 padding: 35px 100px 20px;
+                 
+                 display: flex;
+                 justify-content: space-around;
+                 align-items: center;
+             }
+             
+             header a{
+                 text-decoration: none;
+                 color: white;
+                 opacity: .6;
+                 cursor: pointer;
+             }
+             
+             header a:hover{
+                 opacity: 1;
+             }
+             
+             header nav ul{
+                 font-size:14px;
+                 display: flex;
+                 flex-direction: row;
+                 justify-content: flex-end;
+             }
+             
+             header nav li{
+                 margin: 0 6px;
+             }
+             
+             
+             header nav li:first-child{
+                 margin-left: 0;
+             }
+             
+             
+             header nav li:last-child{
+                 margin-right: 0;
+             }
              
              #gallery ul.grid li{
                  flex-basis: 30%;
                  padding: 0 20px;
                  margin-bottom: 40px;
              }  
+             
+             @media(max-width:1000px){
+                 header{
+                     text-align: center;
+                     flex-direction: column;
+                     padding: 20px 10px;
+                 }
+                 
+                 header img{
+                     margin-top: 20px;
+                     height: 70px;
+                 }
+                 
+                 header nav{
+                     justify-content: space-around;
+                 }
+                 
+                 header h2{
+                     margin-bottom: 15px;
+                 }
+                 
+             }
              
              #get{
                  background-color: #fafafa;
@@ -56,14 +137,79 @@
                  #get .author{
                 font-size: 14px;
              }
-             }
+             }             
          </style>
          
+<script>
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+         </script>
     </head>
      <body id="top">
+         <header>
+            <h2><a href="#" target="_blank"><img class="img-responsive" class="logo" src="Img/My-Logo.png" height="100px" width="auto" alt=""></a></h2>
+               <nav>
+                   <ul>
+                   <li><a href="#top">Home</a></li>
+                   <li><a href="#about">About</a></li>
+                   <li><a href="#gallery">Gallery</a></li>
+                   <li><a href="#get">Get Inspired</a></li>
+                   <li><a href="#contact">Contact</a></li>
+                   <li><a href="#socail-media">Links</a></li>
+                  </ul> 
+             </nav>
+         </header>
+         
+        
+          <!-- ******************************* -->
+        
+               
+
+              
+         
+         <!-- ******************************* -->
+          <body id="top">
          <div id="hero">
                <div class="background-img"></div>
-               <h1>This is my portfolio</h1>
+               <h1>Priya Rajput</h1>
                <h3>An aspiring graphic designer</h3>
                <a href="aaaaaaaaaaaaaa" class="btn" target="_blank"> designer</a>
          
@@ -93,62 +239,152 @@
         </div>
         <hr  style="width:200px">
 
-        <div class="row">
+        <div class="row" style="padding: 100px">
             <div class="column">
-                <div class="container">
-                    <img src="img/Photo%20fantasy.jpg">
-                    <h4>Photo fantasy image</h4>
-                </div>
-                <img src="img/Contrast%20composition%20(negative%20&%20positive).jpg">
-                <img src="img/Cover%20book.png">
-                <img src="Img/McDonalds.png">
-                <img src="Img/mockup.png">
-                <img src="Img/My-Logo.png">
+                <img class="imageContainer" src="img/Photo%20fantasy.jpg" onclick="openModal();currentSlide(1)">
+                <img class="imageContainer" src="img/Contrast%20composition%20(negative%20&%20positive).jpg" onclick="openModal();currentSlide(2)">
+                <img class="imageContainer" src="img/Cover%20book.png" onclick="openModal();currentSlide(3)">
+                <img class="imageContainer" onclick="openModal();currentSlide(4)" src="Img/McDonalds.png">
+                <img class="imageContainer" onclick="openModal();currentSlide(5)" src="Img/mockup.png">
+                <img class="imageContainer" onclick="openModal();currentSlide(6)" src="Img/My-Logo.png">
             </div>
             <div class="column">
-                <img src="img/Word%20cloud.jpg">
-                <img src="img/Bottle%20packaging%20.jpg">
-                <img src="img/Mc%20Donalds%20advertisement%20poster.jpg%20port">
-                <img src="img/Abstract%20art.jpg">
-                <img src="Img/3-fold%20brochure%20-%20backview%20.png">
+                <img class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Word%20cloud.jpg">
+                <img class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Bottle%20packaging%20.jpg">
+                <img class="imageContainer" src="img/Mc%20Donalds%20advertisement%20poster.jpg%20port">
+                <img class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Abstract%20art.jpg">
+                <img class="imageContainer" onclick="openModal();currentSlide(1)" src="Img/3-fold%20brochure%20-%20backview%20.png">
             </div>
             <div class="column">
-              <img src="img/Vector%20image%20of%20Chris%20Hamesworth.jpg">
-              <img src="img/Emphasis%20composition%20.jpg">
-              <img src="img/3-fold%20brochure%20-%20frontview%20.png">
+              <img  class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Vector%20image%20of%20Chris%20Hamesworth.jpg">
+              <img  class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Emphasis%20composition%20.jpg">
+              <img  class="imageContainer" onclick="openModal();currentSlide(1)" src="img/3-fold%20brochure%20-%20frontview%20.png">
             </div>
             <div class="column">
-              <img src="img/Asymmetrical%20color%20scheme.jpg">
-              <img src="img/Photo%20fantasy.jpg">
-              <img src="img/Bottle%20packaging%20.jpg">
-              <img src="img/DisadvantageJunkFood_new.png">
-              <img src="img/Music%20concert%20poster.jpg">
+              <img  class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Asymmetrical%20color%20scheme.jpg">
+              <img  class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Photo%20fantasy.jpg">
+              <img  class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Bottle%20packaging%20.jpg">
+              <img  class="imageContainer" onclick="openModal();currentSlide(1)" src="img/DisadvantageJunkFood_new.png">
+              <img  class="imageContainer" onclick="openModal();currentSlide(1)" src="img/Music%20concert%20poster.jpg">
             </div>
         </div>
+         <!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="img/Word%20cloud.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="img/Photo%20fantasy.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="img/Photo%20fantasy.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="img/Photo%20fantasy.jpg" style="width:100%">
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column">
+      <img class="demo" src="img/Word%20cloud.jpg" onclick="currentSlide(1)" alt="Nature">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img/Word%20cloud.jpg" onclick="currentSlide(2)" alt="Snow">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img/Word%20cloud.jpg" onclick="currentSlide(3)" alt="Mountains">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img/Word%20cloud.jpg" onclick="currentSlide(4)" alt="Lights">
+    </div>
+  </div>
+</div>
             <!-- ******************************* -->
          <div id="get">
              <div id="two-cols">
-                <div class="about-get">
+                <div id="get" class="about-get">
               <h3 class="title">Get Inspired</h3>
-                    <p class="potrait"><img src="img/Paula%20Scher.jpg" alt="Paula Sher" class="potrait-photos"></p>  
+                    <p class="potrait"><img src="img/Paula%20Scher.jpg" alt="Paula Scher" class="potrait-photos"></p>  
                     <p class="designer">&ldquo;"My work is play.And I play when I design. I even looked it up in the dictionary, to make sure that I actually do that, and the definition of 'play', number one, was 'engaging in a childlike activity or endeavor', and number two was 'gambling'. And I realized I do both when i'm designing".&ldquo;</p>
-                    <p class="author">&ndash; Paula Sher</p>
+                    <p class="author">&ndash; Paula Scher</p>
                     </div>
                  <p>&nbsp;</p>
              </div>
              
-         </div>'
+         </div>
          
          
-  <!-- ******************************** -->  
+  <!-- ******************************** -->
+
+	<div id="contact" class="container-contact100">
+		<div class="contact100-map"></div>
+
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">`
+				<span class="contact100-form-title">
+					Contact Us
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter your name">
+					<input class="input100" type="text" name="name" placeholder="Full Name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter email: e@a.x">
+					<input class="input100" type="text" name="email" placeholder="Email">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your message">
+					<textarea class="input100" name="message" placeholder="Your Message"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Send Email
+					</button>
+				</div>
+			</form>
+
+			<div class="contact100-more">
+				Contact no: <span class="contact100-more-highlight">+91 8871515129</span>
+			</div>
+		</div>
+	</div>
+         
+         
+<!-- ******************************** -->  
              
          
-         <footer id="socail-media">
-             <ul>
-                 <li><a href="a" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                 <li><a href="a" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                 <li><a href="a" target="_blank"><i class="fab fa-instagram"></i></a></li>
-             </ul>
-         </footer>
-    </body>
+    <footer id="socail-media" class="footer">
+        <ul>
+            <li><a href="https://www.linkedin.com/jobs/search/?geoId=&keywords=&location=" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.facebook.com/priya.rajput.1426" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/virtuosity2020?r=nametag" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.behance.net/priyarajpu96cb"target="_blank"><i class="fab fa-behance"></i></a></li>
+        </ul>
+    </footer>
+</body>
 </html>
